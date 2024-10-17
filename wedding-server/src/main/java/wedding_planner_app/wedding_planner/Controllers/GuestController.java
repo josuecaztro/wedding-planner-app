@@ -15,12 +15,14 @@ public class GuestController {
     @Autowired
     private GuestRepository repository;
 
+    //CREATE NEW GUEST
     @PostMapping("/guests")
     public ResponseEntity<Guest> createGuest(@RequestBody Guest guest){
         Guest newGuest = repository.save(guest);
         return ResponseEntity.ok(newGuest);
     }
 
+    //GET ALL
     @GetMapping("/guests")
     public List<Guest> getAllGuests(){
         return repository.findAll();
